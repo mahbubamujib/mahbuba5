@@ -7,9 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 
-
+import junit.framework.Assert;
 
 
 
@@ -23,13 +22,18 @@ public class Newtours {
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		
+
+		
+	
 		driver.findElement(By.xpath("//input[@name='userName']")).sendKeys("ziamukta");
 		driver.findElement(By.xpath("//*[@name='password']")).sendKeys("ziamukta123");
 		driver.findElement(By.xpath("//*[@name='submit']")).click();	
 		
+		
 		String expected="Login Successfully";
 		String actual=driver.findElement(By.xpath("//*[contains(text(),'Login Successfully')]")).getText();
 		Assert.assertTrue(actual.contains(expected));	
+		
 		
 		driver.findElement(By.xpath("//*[contains(text(),'Flights')]")).click();
 				driver.findElement(By.xpath("//*[@value='oneway']")).click();
